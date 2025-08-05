@@ -1,0 +1,12 @@
+ import axios from 'axios';
+
+const API_BASE = 'http://localhost:5000/api'; // Update this to match your Flask backend
+
+export const fetchTasks = () => axios.get(`${API_BASE}/tasks`);
+export const addTask = (data) => axios.post(`${API_BASE}/tasks`, data);
+export const updateTask = (id, data) => axios.put(`${API_BASE}/tasks/${id}`, data);
+export const deleteTask = (id) => axios.delete(`${API_BASE}/tasks/${id}`);
+
+export const fetchComments = (taskId) => axios.get(`${API_BASE}/tasks/${taskId}/comments`);
+export const addComment = (taskId, data) => axios.post(`${API_BASE}/tasks/${taskId}/comments`, data);
+export const deleteComment = (taskId, commentId) => axios.delete(`${API_BASE}/tasks/${taskId}/comments/${commentId}`);
